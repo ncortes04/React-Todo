@@ -1,17 +1,29 @@
 import logo from './logo.svg';
-import {useState} from 'react'
+import {useState, useRef, useEffect} from 'react'
 import './App.css';
 function App() {
-  const [togglesidebar, setToggleSidebar] = useState(true)
-  const profile = {name: "John Doe", events:{}}
-  const calendar =
-   ['', '', '', '', '',
-  '', '', '', '', '',
-  '', '', '', '', '',
-  '', '', '', '', '',
-  '', '', '', '', '',
-  '','','', '', '', ''
-]
+  const [togglesidebar, setToggleSidebar] = useState(false)
+  const profile = {name: "John Doe", calendar:{1:["jodajdsjadoasdjsjos", "asdasdadsdadad"], 2:["31313", "12313111"], 4:["31313", "12313111"]}}
+  const CalendarArray = useRef([])
+
+useEffect(() => {
+    for(let i = 1; i < 31; i++){
+        if (profile.calendar[i]){
+          CalendarArray.current[i] = (profile.calendar[i])
+        } else {
+          CalendarArray.current[i] = ([])
+        }
+}
+}, [profile.Calendar])
+
+console.log(CalendarArray.current)
+var joe = function(event) {
+  let jsx = []
+  for(let i = 0; i < event.length; i++){
+    jsx.push(<div className='event-box'>{event[i]}</div>)
+  }
+  return jsx
+}
   return (
     <div className="App">
       <nav className="navbar">
@@ -41,10 +53,16 @@ function App() {
           </aside>
           <section className="maincontainer">
             <div className="calendarcontainer">
-              {calendar.map((item, index) => {
-                return(<div className='calendar-box'>{index + 1}</div>)
+              {CalendarArray.current.map((item, index) => {
+                return(
+                  [<div className='calendar-box'>
+                       <p>{index}</p>
+                       {joe(item)}
+                  </div>
+                 ]
+                )
               })}
-            </div>
+            </div> 
           </section>
       </main>
        
