@@ -1,0 +1,57 @@
+.App {
+  height: 100vh;
+  width: 100vw;
+  background-color: grey;
+  }
+.navbar {
+  background-color: purple;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-calendar-div {
+  display: flex;
+  width: 30vw;
+  align-items: center;
+}
+.navbar-calendar-div p {
+  padding: 30px;
+  font-size: 25px;
+  font-weight: 600;
+  color: white;
+}
+.navbar-controls-div {
+  width: 70vw;
+}
+.togglesidebar-btn {
+  background: none;
+  border: 0;
+  background-image: url('./assets/menu-svgrepo-com.svg');
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin: 10px;
+}
+.searchbox {
+  width: 500px;
+}
+.sidebar {
+  background-color: blue;
+  width: 0;
+  transition: all 1s ease-in;
+}
+.hidden {
+ width: 30vw;
+}
+.container{
+  background-color: red;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.maincontainer {
+  width: 70vw;
+}
